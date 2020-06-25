@@ -7,6 +7,7 @@ import Type from "../views/Type";
 import DL from "../views/DL";
 import About from "../views/About";
 import Login from "../views/Login";
+import Test from "../views/Test";
 
 Vue.use(VueRouter)
 
@@ -55,6 +56,11 @@ Vue.use(VueRouter)
         component: Login
       }
     ]
+  },
+  {
+    path: '/test',
+    name: '测试',
+    component: Test
   }
 ]
 

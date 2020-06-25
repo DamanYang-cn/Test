@@ -43,9 +43,12 @@
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
                         console.log('submit successfully')
-                        console.log(this.ruleForm)
-                        axios.put('http://localhost:9091/user/login',this.ruleForm).then(function (resp) {
+                        // const _this = this
+                        axios.post('http://localhost:9091/user/login',this.ruleForm).then(function (resp) {
                             console.log(resp)
+                            if(resp.data){
+                                alert("true")
+                            }
                         })
                     } else {
                         console.log('error submit!!');

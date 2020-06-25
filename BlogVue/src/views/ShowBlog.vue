@@ -8,6 +8,13 @@
             <p>{{tableData.content}}</p>
          </div>
       </el-card>
+<!--      -->
+<!--      <mavon-editor-->
+<!--              ref="markdownEditor"-->
+<!--              :ishljs="true"-->
+<!--              v-model="content"-->
+<!--      />-->
+
    </div>
 </template>
 
@@ -16,7 +23,8 @@
 </style>
 
 <script>
-    export default {
+   export default {
+
       methods: {
 
       },

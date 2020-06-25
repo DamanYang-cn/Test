@@ -20,7 +20,7 @@
                                       :class="$route.path==item2.path?'is-active':''" v-if="item2.show">{{item2.name}}</el-menu-item>
                     </div>
                 </el-menu>
-                <el-button @click="onSubmit()">登录</el-button>
+                <el-button v-if="login" @click="onSubmit()">登录</el-button>
             </el-aside>
 
             <el-main>
@@ -37,18 +37,27 @@
             return {
                 activeIndex: '1',
                 activeIndex2: '1',
-                url: 'https://s1.ax1x.com/2020/06/20/N1AcPU.th.png'
+                login: null
             };
         },
         methods: {
-            handleSelect(key, keyPath) {
-                console.log(key, keyPath);
-            },
+            // handleSelect(key, keyPath) {
+            //     console.log(key, keyPath);
+            // },
             onSubmit(){
                 this.$router.push({
                     path: '/login'
                 })
             }
+        },
+        created() {
+            const _this = this
+            _this.login = true
+            axios.get('http://localhost:9091/user/show').then(function (resp) {
+                console.log(resp.data)
+                // _this.login = resp.data
+                // _this.login = true
+            })
         }
     }
 </script>

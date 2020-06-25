@@ -1,14 +1,19 @@
 package com.daman.controller;
 
 import com.daman.entity.Blog;
+import com.daman.entity.User;
 import com.daman.repository.BlogRepository;
 import com.daman.repository.TypeRepository;
+import com.daman.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -20,10 +25,17 @@ public class BlogHandler {
 //    @Autowired
 //    private TypeRepository typeRepository;
 
-    @GetMapping("findAll/{page}")
+    @GetMapping("/findAll/{page}")
     public Page findAll(@PathVariable("page") Integer page){
         Pageable pageable = PageRequest.of(page-1,5);
         return blogRepository.findAll(pageable);
+    }
+
+    @GetMapping("/findTest")
+    public List<Blog> findTest(){
+        List<Blog> list = blogRepository.findAll();
+
+        return list;
     }
 
     @GetMapping("/findAll")

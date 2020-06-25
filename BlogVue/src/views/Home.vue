@@ -13,12 +13,13 @@
             <el-card class="box-card">
 <!--                <el-image :src="{{item.pho}}"></el-image>-->
                 <div slot="header" class="clearfix">
-                    <el-button @click="showBlog(item.id)" type="text" size="small"><h2>{{item.title}}</h2></el-button>
+                    <el-button @click="showBlog(item.id)" type="text" size="small"><h1>{{item.title}}</h1></el-button>
                 </div>
                 <div class="text item">
-                    分类：{{type[item.type-1].type}}
-                    <br/>
                     描述：{{item.adj}}
+                    <br/>
+                    分类：{{type[item.type-1].type}}
+                    <div style="color: gray">create_time: {{item.time}}</div>
                 </div>
             </el-card>
         </div>

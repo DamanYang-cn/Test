@@ -14,4 +14,5 @@ public class User {
 //    private String mail;
     private String password;
 //    private Integer right;
+    private String right;
 }
